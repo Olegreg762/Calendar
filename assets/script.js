@@ -1,6 +1,31 @@
 // Wrap all code that interacts with the DOM in a call to jQuery to ensure that
 // the code isn't run until the browser has finished rendering all the elements
 // in the html.
+
+const hour_template = document.querySelector('#hour-9');
+const number_hours = 18;
+let pm_am = "";
+for(let i = 10; i < number_hours; i++){
+  const clone = hour_template.parentElement.cloneNode(true);
+  clone.id = `hour-${i}`;
+  const hour_text = clone.querySelector('.hour');
+  let hour = i;
+  if(i<12){
+    pm_am = "AM"
+  }else{
+    pm_am = "PM"
+    hour -=12;
+  }
+  if(hour == 0){
+    hour = 12
+  }
+  hour_text.textContent = `${hour+pm_am}`;
+  document.body.appendChild(clone);
+
+}
+
+
+
 $(function () {
   // TODO: Add a listener for click events on the save button. This code should
   // use the id in the containing time-block as a key to save the user input in
