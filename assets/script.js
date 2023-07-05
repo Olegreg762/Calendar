@@ -3,27 +3,29 @@
 // in the html.
 let date = new Date();
 let hours = date.getHours();
-// const hour_template = document.querySelector('#hour-9');
-// const number_hours = 18;
-// let pm_am = "";
-// for(let i = 10; i < number_hours; i++){
-//   const clone = hour_template.parentElement.cloneNode(true);
-//   clone.id = `hour-${i}`;
-//   const hour_text = clone.querySelector('.hour');
-//   let hour = i;
-//   if(i<12){
-//     pm_am = "AM"
-//   }else{
-//     pm_am = "PM"
-//     hour -=12;
-//   }
-//   if(hour == 0){
-//     hour = 12
-//   }
-//   hour_text.textContent = `${hour+pm_am}`;
-//   document.body.appendChild(clone);
+const hour_container = document.querySelector('.container-fluid');
+const hour_template = document.querySelector('#hour-9')
+const number_hours = 18;
+let pm_am = "";
+for(let i = 10; i < number_hours; i++){
+  const clone = hour_template.cloneNode(true);
+  clone.id = `hour-${i}`;
+  const hour_text = clone.querySelector('.hour');
+  let hour = i;
+  if(i<12){
+    pm_am = "AM"
+  }else{
+    pm_am = "PM"
+    hour -=12;
+  }
+  if(hour == 0){
+    hour = 12
+  }
+  hour_text.textContent = `${hour+pm_am}`;
+  hour_container.appendChild(clone);
 
-// }
+}
+
 function date_time(){
   hours = date.getHours();
   minutes = date.getMinutes();
@@ -53,6 +55,7 @@ if(element_hour_id_value == hours){
   element_hour.classList.add('present');
 }else if(element_hour_id_value > hours){
   element_hour.classList.remove('past');
+  element_hour.classList.remove('present')
   element_hour.classList.add('future');
 }
 }
