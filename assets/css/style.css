@@ -1,13 +1,24 @@
+:root{
+  --bg_color:#1e1047;
+  --text_color: #927c0c;
+  
+}
 body {
   font-family: 'Open Sans', sans-serif;
   font-size: 16px;
+  background-color: var(--bg_color);
+  color: var(--text_color);
+}
+
+header{
+  text-align: center;
 }
 
 textarea {
   background: transparent;
   border: none;
   resize: none;
-  color: #000000;
+  color:var(--text_color);
   border-left: 1px solid black;
   padding: 10px;
 }
@@ -21,12 +32,12 @@ textarea {
 }
 
 .row {
-  border-top: 1px solid white;
+  border-top: 1px solid var(--text_color);
 }
 
 .hour {
-  background-color: #ffffff;
-  color: #000000;
+  background-color: var(--bg_color);
+  color:var(--text_color);
   border-top: 1px dashed #000000;
 }
 
@@ -49,8 +60,8 @@ textarea {
   border-left: 1px solid black;
   border-top-right-radius: 15px;
   border-bottom-right-radius: 15px;
-  background-color: #06aed5;
-  color: white;
+  background-color: #044289;
+  color:var(--text_color);
 }
 
 .saveBtn i:hover {
