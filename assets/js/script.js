@@ -90,9 +90,10 @@ $(function () {
       pm_am = "PM"
       event_hour -= 12 
     }
-    
 
-    $(`<p id="pop_up">Your Event ${event} has be added to ${event_hour+pm_am} in Locale Storage</p>`).insertAfter("#currentDay");
+    show_local();   
+
+    $(`<p id="pop_up">Your Event ${event} has be added to ${event_hour+pm_am} in Local Storage</p>`).insertAfter("#currentDay");
 
     setTimeout(remove_pop_up, 4000)
 
@@ -102,5 +103,13 @@ $(function () {
     const popup_div = document.getElementById("pop_up");
     popup_div.remove();
   }
+
+  function show_local(){
+    let num_elements = 18
+    for(let i = 9; i < num_elements; i++){
+      $(`#hour-${i} .description`).val(localStorage.getItem(`hour-${i}`))
+    }
+  }
+  show_local();
 
 });
