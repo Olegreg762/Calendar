@@ -17,8 +17,7 @@ for(let i = 10; i < number_hours; i++){
   }else{
     pm_am = "PM"
     hour -=12;
-  }
-  if(hour == 0){
+  }if(hour == 0){
     hour = 12
   }
   hour_text.textContent = `${hour+pm_am}`;
@@ -32,14 +31,13 @@ function date_time(){
   minutes = date.getMinutes();
   if(minutes<10){
     minutes="0"+date.getMinutes()
-  }
-  if(hours<12){
+  }if(hours<12){
     pm_am = "AM"
   }else{
     pm_am = "PM"
     hours -= 12 
   }
-  document.getElementById("currentDay").textContent = `Today's Date ${date.getMonth()}/${date.getDay()}/${date.getFullYear()} ${hours}:${minutes}${pm_am}:${date.getSeconds()}`;
+  document.getElementById("currentDay").textContent = `Today's Date ${date.getMonth()}/${date.getDay()}/${date.getFullYear()} ${hours}:${minutes}${pm_am}`;
 
   hours = date.getHours();
   let ids = 18;
@@ -55,7 +53,7 @@ function date_time(){
     element_hour.classList.remove('past');
     element_hour.classList.remove('present')
     element_hour.classList.add('future');
-  }else if(element_hour_id_value<hours){
+  }else if(element_hour_id_value < hours){
     element_hour.classList.remove('present');
     element_hour.classList.remove('future');
     element_hour.classList.add('past'); 
