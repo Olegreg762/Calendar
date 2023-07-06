@@ -27,6 +27,7 @@ for(let i = 10; i < number_hours; i++){
 }
 
 function date_time(){
+  date = new Date();
   hours = date.getHours();
   minutes = date.getMinutes();
   if(minutes<10){
@@ -38,27 +39,32 @@ function date_time(){
     pm_am = "PM"
     hours -= 12 
   }
-  document.getElementById("currentDay").textContent = `Today's Date ${date.getMonth()}/${date.getDay()}/${date.getFullYear()} ${hours}:${minutes}${pm_am}`;
+  document.getElementById("currentDay").textContent = `Today's Date ${date.getMonth()}/${date.getDay()}/${date.getFullYear()} ${hours}:${minutes}${pm_am}:${date.getSeconds()}`;
+
+  hours = date.getHours();
+  let ids = 18;
+  for(let i = 9; i<ids;i++ ){
+  let element_hour = document.getElementById(`hour-${i}`);
+  let element_hour_id = element_hour.id;
+  let element_hour_id_value = element_hour_id.replace('hour-', '');
+  if(element_hour_id_value == hours){
+    element_hour.classList.remove('past');
+    element_hour.classList.remove('future')
+    element_hour.classList.add('present');
+  }else if(element_hour_id_value > hours){
+    element_hour.classList.remove('past');
+    element_hour.classList.remove('present')
+    element_hour.classList.add('future');
+  }else if(element_hour_id_value<hours){
+    element_hour.classList.remove('present');
+    element_hour.classList.remove('future');
+    element_hour.classList.add('past'); 
+  }
+  }
 } 
 date_time()
-setInterval(date_time,1000);
+setInterval(date_time,1000)
 
-
-hours = date.getHours();
-let ids = 18;
-for(let i = 9; i<ids;i++ ){
-let element_hour = document.getElementById(`hour-${i}`);
-let element_hour_id = element_hour.id;
-let element_hour_id_value = element_hour_id.replace('hour-', '');
-if(element_hour_id_value == hours){
-  element_hour.classList.remove('past');
-  element_hour.classList.add('present');
-}else if(element_hour_id_value > hours){
-  element_hour.classList.remove('past');
-  element_hour.classList.remove('present')
-  element_hour.classList.add('future');
-}
-}
 
 
 
