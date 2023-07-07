@@ -10,8 +10,7 @@ $(function () {
     clone.id = `hour-${i}`;
     const hour_text = clone.querySelector('.hour');
     let hour = i;
-    time_if(hour);
-    hour_text.textContent = `${hour+pm_am}`;
+    hour_text.textContent = `${time_if(hour)+pm_am}`;
     hour_container.appendChild(clone);
   }
 
@@ -53,9 +52,8 @@ $(function () {
     localStorage.setItem(event_time,event);
 
     event_hour = event_time.replace('hour-','')
-    time_if(event_hour);
     show_local();   
-    $(`<p id="pop_up">Your Event ${event} has been added to ${event_hour+pm_am} in Local Storage</p>`).insertAfter("#currentDay");
+    $(`<p id="pop_up">Your Event ${event} has been added to ${time_if(event_hour)+pm_am} in Local Storage</p>`).insertAfter("#currentDay");
     setTimeout(remove_pop_up, 4000)
   })
 
