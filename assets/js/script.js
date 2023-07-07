@@ -15,31 +15,22 @@ $(function () {
   }
 
   function date_time(){
-    date = new Date();
     minutes = date.getMinutes();
     if(minutes<10){
       minutes="0"+date.getMinutes()
     }
-    document.getElementById("currentDay").textContent = `Today's Date ${date.getMonth()}/${date.getDay()}/${date.getFullYear()} ${time_if(hours)}:${minutes}${pm_am}`;
+    $("#currentDay").text(`Today's Date ${date.getMonth()}/${date.getDay()}/${date.getFullYear()} ${time_if(hours)}:${minutes}${pm_am}`);
 
-    hours = date.getHours();
-    let ids = 18;
+    const ids = 18;
     for(let i = 9; i<ids;i++ ){
-    let element_hour = document.getElementById(`hour-${i}`);
-    let element_hour_id = element_hour.id;
-    let element_hour_id_value = element_hour_id.replace("hour-", "");
-    if(element_hour_id_value == hours){
-      element_hour.classList.remove("past");
-      element_hour.classList.remove("future")
-      element_hour.classList.add("present");
+    let element_hour = $(`#hour-${i}`);
+    let element_hour_id_value = i;
+    if(element_hour_id_value === hours){
+      element_hour.removeClass("past future").addClass("present");
     }else if(element_hour_id_value > hours){
-      element_hour.classList.remove("past");
-      element_hour.classList.remove("present")
-      element_hour.classList.add("future");
+      element_hour.removeClass("past present").addClass("future");
     }else if(element_hour_id_value < hours){
-      element_hour.classList.remove("present");
-      element_hour.classList.remove("future");
-      element_hour.classList.add("past"); 
+      element_hour.removeClass("present future").addClass("past");
       }
     }
   } 
@@ -60,7 +51,7 @@ $(function () {
   })
   // Deletes the message for adding the event to local storage
   function remove_pop_up(){
-    const popup_div = document.getElementById("pop_up");
+    const popup_div = $("#pop_up");
     popup_div.remove();
   }
   // Function for displaying to local storage 
