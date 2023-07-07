@@ -1,16 +1,18 @@
 // Main jQuery function
 $(function () {
+  // Gets the date and sets as a variable
   let date = new Date();
   let hours = date.getHours();
-  const hour_container = $(".container-fluid");
-  const hour_template = $("#hour-9")
-  const number_hours = 18;
   let pm_am = "";
-  for(let i = 10; i < number_hours; i++){
-    const clone = hour_template.clone().attr("id", `hour-${i}`);
+  // for loop that looks for the id "hour-9" and then copy's it after the container div ".container-fluid"
+  // The loop will start at 10 and end at 17
+  for(let i = 10; i < 18; i++){
+    // Will set the id of each cloned div as "hour-" and value of "i"
+    const clone = $("#hour-9").clone().attr("id", `hour-${i}`);
     const hour_text = clone.find(".hour");
+    // Sets the text content for each copied div by passing the value of "i" to the time_if function
     hour_text.text(`${time_if(i)+pm_am}`);
-    hour_container.append(clone);
+    $(".container-fluid").append(clone);
   }
 
   function date_time(){
