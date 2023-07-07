@@ -1,17 +1,16 @@
+// Main jQuery function
 $(function () {
   let date = new Date();
   let hours = date.getHours();
-  const hour_container = document.querySelector(".container-fluid");
-  const hour_template = document.querySelector("#hour-9")
+  const hour_container = $(".container-fluid");
+  const hour_template = $("#hour-9")
   const number_hours = 18;
   let pm_am = "";
   for(let i = 10; i < number_hours; i++){
-    const clone = hour_template.cloneNode(true);
-    clone.id = `hour-${i}`;
-    const hour_text = clone.querySelector(".hour");
-    let hour = i;
-    hour_text.textContent = `${time_if(hour)+pm_am}`;
-    hour_container.appendChild(clone);
+    const clone = hour_template.clone().attr("id", `hour-${i}`);
+    const hour_text = clone.find(".hour");
+    hour_text.text(`${time_if(i)+pm_am}`);
+    hour_container.append(clone);
   }
 
   function date_time(){
@@ -46,17 +45,16 @@ $(function () {
 
     event_hour = event_time.replace("hour-","")
     show_local();   
-    $(`<p id="pop_up">Your Event ${event} has been added to ${time_if(event_hour)+pm_am} in Local Storage</p>`).insertAfter("#currentDay");
+    $(`<p id="pop_up">Your Event "${event}" has been added to ${time_if(event_hour)+pm_am} in Local Storage</p>`).insertAfter("#currentDay");
     setTimeout(remove_pop_up, 4000)
   })
   // Deletes the message for adding the event to local storage
   function remove_pop_up(){
-    const popup_div = $("#pop_up");
-    popup_div.remove();
+    $("#pop_up").remove();
   }
   // Function for displaying to local storage 
   function show_local(){
-    let num_elements = 18
+    const num_elements = 18
     for(let i = 9; i < num_elements; i++){
       $(`#hour-${i} .description`).val(localStorage.getItem(`hour-${i}`))
     }
