@@ -10,33 +10,18 @@ $(function () {
     clone.id = `hour-${i}`;
     const hour_text = clone.querySelector('.hour');
     let hour = i;
-    if(i<12){
-      pm_am = "AM"
-    }else{
-      pm_am = "PM"
-      hour -=12;
-    }if(hour == 0){
-      hour = 12
-    }
+    time_if(hour);
     hour_text.textContent = `${hour+pm_am}`;
     hour_container.appendChild(clone);
   }
 
   function date_time(){
     date = new Date();
-    hours = date.getHours();
     minutes = date.getMinutes();
     if(minutes<10){
       minutes="0"+date.getMinutes()
-    }if(hours<12){
-      pm_am = "AM"
-    }else{
-      pm_am = "PM"
-      hours -= 12 
-    }if(hours ==0){
-      hours = 12
     }
-    document.getElementById("currentDay").textContent = `Today's Date ${date.getMonth()}/${date.getDay()}/${date.getFullYear()} ${hours}:${minutes}${pm_am}`;
+    document.getElementById("currentDay").textContent = `Today's Date ${date.getMonth()}/${date.getDay()}/${date.getFullYear()} ${time_if(hours)}:${minutes}${pm_am}`;
 
     hours = date.getHours();
     let ids = 18;
@@ -68,17 +53,9 @@ $(function () {
     localStorage.setItem(event_time,event);
 
     event_hour = event_time.replace('hour-','')
-    if(event_hour<12){
-      pm_am = "AM"
-    }else{
-      pm_am = "PM"
-      event_hour -= 12 
-    }if(event_hour == 0){
-      event_hour = 12
-    }
-
+    time_if(event_hour);
     show_local();   
-    $(`<p id="pop_up">Your Event ${event} has be added to ${event_hour+pm_am} in Local Storage</p>`).insertAfter("#currentDay");
+    $(`<p id="pop_up">Your Event ${event} has been added to ${event_hour+pm_am} in Local Storage</p>`).insertAfter("#currentDay");
     setTimeout(remove_pop_up, 4000)
   })
 
@@ -93,5 +70,18 @@ $(function () {
       $(`#hour-${i} .description`).val(localStorage.getItem(`hour-${i}`))
     }
   }
+
+  function time_if(input){
+    if(input<12){
+      pm_am = "AM"
+    }else{
+      pm_am = "PM"
+      input -= 12 
+    }if(input == 0){
+      input = 12
+    }
+    return input
+  }
+
   show_local();
 });
