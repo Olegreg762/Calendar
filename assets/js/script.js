@@ -1,18 +1,4 @@
-// Wrap all code that interacts with the DOM in a call to jQuery to ensure that
-// the code isn't run until the browser has finished rendering all the elements
 $(function () {
-  // TODO: Add a listener for click events on the save button. This code should
-  // use the id in the containing time-block as a key to save the user input in
-  // local storage. HINT: What does `this` reference in the click listener
-  // function? How can DOM traversal be used to get the "hour-x" id of the
-  // time-block containing the button that was clicked? How might the id be
-  // useful when saving the description in local storage?
-  //
-  // TODO: Add code to get any user input that was saved in localStorage and set
-  // the values of the corresponding textarea elements. HINT: How can the id
-  // attribute of each time-block be used to do this?
-  //
-  // TODO: Add code to display the current date in the header of the page.
   let date = new Date();
   let hours = date.getHours();
   const hour_container = document.querySelector('.container-fluid');
@@ -34,7 +20,6 @@ $(function () {
     }
     hour_text.textContent = `${hour+pm_am}`;
     hour_container.appendChild(clone);
-
   }
 
   function date_time(){
@@ -48,6 +33,8 @@ $(function () {
     }else{
       pm_am = "PM"
       hours -= 12 
+    }if(hours ==0){
+      hours = 12
     }
     document.getElementById("currentDay").textContent = `Today's Date ${date.getMonth()}/${date.getDay()}/${date.getFullYear()} ${hours}:${minutes}${pm_am}`;
 
@@ -69,19 +56,16 @@ $(function () {
       element_hour.classList.remove('present');
       element_hour.classList.remove('future');
       element_hour.classList.add('past'); 
-    }
+      }
     }
   } 
   date_time()
   setInterval(date_time,1000)
-
   let save_button = $('.saveBtn');
-
   save_button.on('click', function(){
     let event = $(this).siblings('.description').val();
     let event_time = $(this).parent().attr("id");
     localStorage.setItem(event_time,event);
-
 
     event_hour = event_time.replace('hour-','')
     if(event_hour<12){
@@ -89,14 +73,13 @@ $(function () {
     }else{
       pm_am = "PM"
       event_hour -= 12 
+    }if(event_hour == 0){
+      event_hour = 12
     }
 
     show_local();   
-
     $(`<p id="pop_up">Your Event ${event} has be added to ${event_hour+pm_am} in Local Storage</p>`).insertAfter("#currentDay");
-
     setTimeout(remove_pop_up, 4000)
-
   })
 
   function remove_pop_up(){
@@ -111,5 +94,4 @@ $(function () {
     }
   }
   show_local();
-
 });
