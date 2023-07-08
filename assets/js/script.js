@@ -16,9 +16,6 @@ $(function () {
     $(".container-fluid").append(clone);
     // Adds comment before each div that is created by loop
     $(document.createComment( "This div was created and added from the for loop in the JavaScript")).insertBefore($(`#hour-${i}`));
-
-  
-
   }
   // Function for displaying the date & time and changing colors of the calendar slots
   function date_time(){
