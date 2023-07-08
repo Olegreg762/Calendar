@@ -15,7 +15,7 @@ $(function () {
     // Appends the copied div under the ".container-fluid" div
     $(".container-fluid").append(clone);
     // Adds comment before each div that is created by loop
-    $(document.createComment( " This div was created and added by the for loop in the linked script.js ")).insertBefore($(`#hour-${i}`));
+    $( "<!-- This div was created and added by the for loop in the linked script.js -->").insertBefore($(`#hour-${i}`));
   }
   // Function for displaying the date & time and changing colors of the calendar slots
   function date_time(){
