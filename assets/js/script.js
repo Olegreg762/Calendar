@@ -50,15 +50,20 @@ $(function () {
   // Calls the date_time func every second to update 
   setInterval(date_time,1000)
   // Event Listener for "click" on saveBtn
-  let save_button = $(".saveBtn");
-  save_button.on("click", function(){
+  $(".saveBtn").on("click", function(){
+    // Records the text content of the div for the button press
     let event = $(this).siblings(".description").val();
+    // Gets the parent element of the clicked button
     let event_time = $(this).parent().attr("id");
+    // Sets the text from the variable event into the local storage
     localStorage.setItem(event_time,event);
-
+    // Removes "hour-" from the parent id to be used in the popup message
     event_hour = event_time.replace("hour-","")
-    show_local();   
+    // Calls show_local func to display the local storage items
+    show_local();  
+    // Creates and displays the popup message element when an event is added to the local storage
     $(`<p id="pop_up">Your Event "${event}" has been added to ${time_if(event_hour)+pm_am} in Local Storage</p>`).insertAfter("#currentDay");
+    // Deletes the popup message element after 4 seconds
     setTimeout(remove_pop_up, 4000)
   })
   // Deletes the message for adding the event to local storage
