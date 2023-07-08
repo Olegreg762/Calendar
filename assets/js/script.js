@@ -12,31 +12,37 @@ $(function () {
     const hour_text = clone.find(".hour");
     // Sets the text content for each copied div by passing the value of "i" to the time_if function
     hour_text.text(`${time_if(i)+pm_am}`);
+    // Appends the copied div under the ".container-fluid" div
     $(".container-fluid").append(clone);
   }
-
+  // Function for displaying the date & time and changing colors of the calendar slots
   function date_time(){
+    // Gets the minutes for the date variable
     minutes = date.getMinutes();
+    // If the minutes is less than 10 will add a 0 before the value
     if(minutes<10){
       minutes="0"+date.getMinutes()
     }
+    // Sets the text of "#currentDay" to be the current date time
     $("#currentDay").text(`Today's Date ${date.getMonth()}/${date.getDay()}/${date.getFullYear()} ${time_if(hours)}:${minutes}${pm_am}`);
-
-    const ids = 18;
-    for(let i = 9; i<ids;i++ ){
+    // for loop that checks the hours and changes the color of calendar slot
+    // Loop begins at 9 and will end at 17 the same as number of hours in the calendar app
+    for(let i = 9; i<18;i++ ){
+    // Sets the the id the loop looks at to a variable "#hour-${i}" with the value of i changing as the loop iterates
     let element_hour = $(`#hour-${i}`);
-    let element_hour_id_value = i;
-    if(element_hour_id_value === hours){
+    // If statement that will change the class and in turn the color of the calendar slot based on the time
+    if(i === hours){
       element_hour.removeClass("past future").addClass("present");
-    }else if(element_hour_id_value > hours){
+    }else if(i > hours){
       element_hour.removeClass("past present").addClass("future");
-    }else if(element_hour_id_value < hours){
+    }else if(i < hours){
       element_hour.removeClass("present future").addClass("past");
       }
     }
   } 
-
+  // Calls the date_time() function to display the date and time and set calendar slot colors
   date_time()
+  // Calls the date_time func every second to update 
   setInterval(date_time,1000)
   // Event Listener for "click" on saveBtn
   let save_button = $(".saveBtn");
