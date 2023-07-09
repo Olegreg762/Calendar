@@ -15,12 +15,11 @@ library.<br>
 
 The [index.html](./index.html) only contains a div for the hour of "9AM". I use JavaScript with the help of the 
 [clone()](https://api.jquery.com/clone/)
-method from
-`jQuery`
-the div for the hours "10AM" through "5PM" are created.<br>
-[removeClass()]()
-[addClass()]()
+method from `jQuery` to create the div's for the hours "10AM" through "5PM".<br>
+The Javascript also adds a [comment](#comment) to each div that is created this way
+[removeClass()](https://api.jquery.com/removeclass/)
+[addClass()](https://api.jquery.com/addclass/)
 
 ![no event](./assets/images/Screenshot_no_event.png)
 ![event](./assets/images/Screenshot_event.png)
-![dev tools](./assets/images/Screenshot_html_dev_tools.png)
+![dev tools](./assets/images/Screenshot_html_dev_tools.png){: #comment }
