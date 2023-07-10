@@ -22,9 +22,7 @@ The [index.html](./index.html) only contains a div for the hour of "9AM". I use 
 method from `jQuery` to create the div's for the hours "10AM" through "5PM".<br>
 The Javascript also adds a [comment](#javascript-comments) to each div that is created this way.<br>
 
-To get the colors to change based upon the hour of the day. I use the 
-[Date](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date)
-method to determine what time of day it is,
+To get the colors to change based upon the hour of the day. I use `day.js` to determine what time of day it is,
 once the time has been established.<br>
 The `jQuery` methods 
 [removeClass()](https://api.jquery.com/removeclass/)
