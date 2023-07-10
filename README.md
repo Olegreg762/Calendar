@@ -9,17 +9,26 @@ To build the app I use 3 different linked API style sheets from [Bootstrap](http
 [Fontawesome](https://use.fontawesome.com/releases/v5.8.1/css/all.css),
 and
 [Google](https://fonts.googleapis.com/css2?family=Fira+Sans:wght@400;700&display=swap).<br>
-I also use the 
+The 
 [jQuery](https://jquery.com/)
-library.<br>
+library is used to build some website and add much of the functionality.<br>
 
 The [index.html](./index.html) only contains a div for the hour of "9AM". I use JavaScript with the help of the 
 [clone()](https://api.jquery.com/clone/)
 method from `jQuery` to create the div's for the hours "10AM" through "5PM".<br>
-The Javascript also adds a [comment](#comment) to each div that is created this way
+The Javascript also adds a [comment](#javascript-comments) to each div that is created this way.<br>
+
+To get the colors to change based upon the hour of the day. I use the 
+[Date](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date)
+method to determine what time of day it is,
+once the time has been established.<br>
+The `jQuery` methods 
 [removeClass()](https://api.jquery.com/removeclass/)
+&
 [addClass()](https://api.jquery.com/addclass/)
+are used to remove or add the class attributes `past`, `present`, or `future` depending on the hour.<br>
 
 ![no event](./assets/images/Screenshot_no_event.png)
-![event](./assets/images/Screenshot_event.png)
-![dev tools](./assets/images/Screenshot_html_dev_tools.png){: #comment }
+![event](./assets/images/Screenshot_event.png) 
+# Javascript comments
+![dev tools](./assets/images/Screenshot_html_dev_tools.png)
