@@ -30,5 +30,6 @@ are used to remove or add the class attributes `past`, `present`, or `future` de
 
 ![no event](./assets/images/Screenshot_no_event.png)
 ![event](./assets/images/Screenshot_event.png) 
-# Javascript comments
+## Javascript comments
+In the following screenshot you can see the div's and comments that are created by the Javascript.
 ![dev tools](./assets/images/Screenshot_html_dev_tools.png)
