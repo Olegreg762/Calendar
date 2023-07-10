@@ -1,8 +1,5 @@
 // Main jQuery function
 $(function () {
-  // Gets the date and sets as a variable
-  let date = new Date();
-  let hours = date.getHours();
   let pm_am = "";
   // for loop that looks for the id "hour-9" and then copy's it after the container div ".container-fluid"
   // The loop will start at 10 and end at 17
@@ -19,14 +16,13 @@ $(function () {
   }
   // Function for displaying the date & time and changing colors of the calendar slots
   function date_time(){
+    // Gets the date and sets as a variable
+    let date = dayjs();
+    let hours = date.format("H");
     // Gets the minutes for the date variable
-    minutes = date.getMinutes();
-    // If the minutes is less than 10 will add a 0 before the value
-    if(minutes<10){
-      minutes="0"+date.getMinutes()
-    }
-    // Sets the text of "#currentDay" to be the current date time
-    $("#currentDay").text(`Today's Date ${date.getMonth()}/${date.getDay()}/${date.getFullYear()} ${time_if(hours)}:${minutes}${pm_am}`);
+    let minutes = date.format("mm");
+    // Sets the text of "#currentDay" to be the current date time 
+    $("#currentDay").text(`Today's is ${date.format("dddd, MMMM DD")} at ${time_if(hours)}:${minutes}${pm_am}`);
     // for loop that checks the hours and changes the color of calendar slot
     // Loop begins at 9 and will end at 17 the same as number of hours in the calendar app
     for(let i = 9; i<18;i++ ){

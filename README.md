@@ -13,6 +13,10 @@ The
 [jQuery](https://jquery.com/)
 library is used to build some website and add much of the functionality.<br>
 
+The Javascript library
+[Day.js](https://day.js.org/docs/en/display/format)
+is also used to get date and time information.<br> 
+
 The [index.html](./index.html) only contains a div for the hour of "9AM". I use JavaScript with the help of the 
 [clone()](https://api.jquery.com/clone/)
 method from `jQuery` to create the div's for the hours "10AM" through "5PM".<br>
