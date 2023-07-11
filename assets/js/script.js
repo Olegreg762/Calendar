@@ -26,7 +26,6 @@ $(function () {
     // for loop that checks the hours and changes the color of calendar slot
     // Loop begins at 9 and will end at 17 the same as number of hours in the calendar app
     for(let i = 9; i<18;i++ ){
-      console.log`I = ${i}, Hours = ${hours}`
     // Sets the the id the loop looks at to a variable "#hour-${i}" with the value of i changing as the loop iterates
     let element_hour = $(`#hour-${i}`);
     // If statement that will change the class and in turn the color of the calendar slot based on the time
