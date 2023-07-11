@@ -1,6 +1,6 @@
 # Calendar
  
-Within this repo I create a simple daily calendar web app. With the app you can add your events for the day.<br>
+Within this repo I create a simple daily [calendar](https://olegreg762.github.io/Calendar/) web app. With the app you can add your events for the day.<br>
 The added events are saved in 
 [Local Storage](https://www.w3schools.com/html/html5_webstorage.asp)
 so that the event can be displayed later.
@@ -11,7 +11,7 @@ and
 [Google](https://fonts.googleapis.com/css2?family=Fira+Sans:wght@400;700&display=swap).<br>
 The 
 [jQuery](https://jquery.com/)
-library is used to build some website and add much of the functionality.<br>
+library is used to build some of website and add much of the functionality.<br>
 
 The Javascript library
 [Day.js](https://day.js.org/docs/en/display/format)
@@ -19,7 +19,7 @@ is also used to get date and time information.<br>
 
 The [index.html](./index.html) only contains a div for the hour of "9AM". I use JavaScript with the help of the 
 [clone()](https://api.jquery.com/clone/)
-method from `jQuery` to create the div's for the hours "10AM" through "5PM".<br>
+method from `jQuery` to create the div's for the hours "10AM" through "5PM".
 The Javascript also adds a [comment](#javascript-comments) to each div that is created this way.<br>
 
 To get the colors to change based upon the hour of the day. I use `day.js` to determine what time of day it is,
