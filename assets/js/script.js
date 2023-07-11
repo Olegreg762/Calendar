@@ -57,7 +57,7 @@ $(function () {
     // Creates and displays the popup message element when an event is added to the local storage
     $(`<p id="pop_up">Your Event "${event}" has been added to ${time_if(event_hour)+pm_am} in Local Storage</p>`).insertAfter("#currentDay");
     // Deletes the popup message element after 4 seconds
-    setTimeout(remove_pop_up, 40000)
+    setTimeout(remove_pop_up, 4000)
   })
   // Deletes the message for adding the event to local storage
   function remove_pop_up(){
