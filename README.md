@@ -30,8 +30,9 @@ The `jQuery` methods
 [addClass()](https://api.jquery.com/addclass/)
 are used to remove or add the class attributes `past`, `present`, or `future` depending on the hour.<br>
 
-![no event](./assets/images/Screenshot_no_event.png)
+![no_event](./assets/images/Screenshot_no_event.png)
 ![event](./assets/images/Screenshot_event.png) 
+![event_store](./assets/images/Screenshot_event_stored.png)
 ## Javascript comments
 In the following screenshot you can see the div's and comments that are created by the Javascript.
-![dev tools](./assets/images/Screenshot_html_dev_tools.png)
+![dev_tools](./assets/images/Screenshot_html_dev_tools.png)
